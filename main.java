@@ -16,9 +16,35 @@ class Task{
 }
 
 //Method of addTask, TaskList, markTaskComplete, and displayTask
-class taskList{
+// class taskList{
+//   Node head;
 
-}
+//   static class Node{
+//     Task task;
+//     Node next;
+
+//     Node(Task task){
+//         this.task = task;
+//         this.task = null;
+//     }
+//   }
+
+// void addTask(Task task){
+
+// }
+
+// void displayTasks(){
+
+// }
+
+// void markTaskComplete(String Description){
+
+// }
+
+// // Private method implementing the insertion sort algorithm for maintaining sorted order
+// private void insertionSort(){
+
+// }
 
 public class main{
     public static void main(String[] args){
@@ -46,17 +72,17 @@ public class main{
                     String dueDate = option.nextLine();
 
                     Task newTask = new Task(description, priority, dueDate);
-                    taskList.addTask(newTask);
+                    // taskList.addTask(newTask);
                     System.out.println("Task added Succesfully");
                     break;
                 case 2:
                     System.out.println("Task List:");
-                    taskList.displayTasks();
+                    // taskList.displayTasks();
                     break;
                 case 3:
                     System.out.print("Enter Task Description to mark as complete: ");
-                    String taskDescription = scanner.nextLine();
-                    taskList.markTaskComplete(taskDescription);
+                    String taskDescription = option.nextLine();
+                    // taskList.markTaskComplete(taskDescription);
                     System.out.println("Task marked as complete!");
                     break;
                 case 4:
@@ -65,6 +91,7 @@ public class main{
                 default:
                     System.out.println("Invalid choice. Please choose a valid option.");
             }
-        }
-    }
-}
+         }
+      }
+   }
+// }
