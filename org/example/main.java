@@ -100,7 +100,7 @@ class toDoList {
                     for (org.example.task task : tasks) {
                         System.out.println(index + ". " + task);
                         index++;
-                    }
+                    }  
                 }
             }
         }
@@ -250,7 +250,7 @@ class toDoList {
             int choice;
             try {
                 choice = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
+                scanner.nextLine(); 
             } catch (InputMismatchException e) {
                 handleInvalidInput(scanner);
                 return;
@@ -277,7 +277,7 @@ class toDoList {
                     int newPriority;
                     try {
                         newPriority = scanner.nextInt();
-                        scanner.nextLine(); // Consume the newline character
+                        scanner.nextLine(); 
                     } catch (InputMismatchException e) {
                         handleInvalidInput(scanner);
                         return;
