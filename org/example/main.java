@@ -76,7 +76,6 @@ class toDoList {
         }
     }
 
-    // Method to add a task to the ToDoList
     public void addTask(task task) {
         int priority = task.getPriority();
         LinkedList<org.example.task> tasks = priorityCategories.get(priority);
@@ -84,7 +83,6 @@ class toDoList {
         insertionSort(tasks);
     }
 
-    // Method to display all tasks in the ToDoList
     public void displayTasks() {
         if (priorityCategories.isEmpty() || priorityCategories.values().stream().allMatch(LinkedList::isEmpty)) {
             System.out.println("No entries in the To-Do List.");
@@ -106,13 +104,12 @@ class toDoList {
         }
     }
 
-    // Method to mark a task as complete
     public void markTaskComplete(Scanner scanner) {
         System.out.print("Enter the priority of the task to mark as complete (1-5): ");
         int priority;
         try {
             priority = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+            scanner.nextLine();
         } catch (InputMismatchException e) {
             handleInvalidInput(scanner);
             return;
@@ -137,7 +134,7 @@ class toDoList {
         int taskIndex;
         try {
             taskIndex = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+            scanner.nextLine();
         } catch (InputMismatchException e) {
             handleInvalidInput(scanner);
             return;
@@ -153,7 +150,6 @@ class toDoList {
         }
     }
 
-    // Method to add a task using user input
     public void addTask(Scanner scanner) {
         System.out.println("\nAdding a New Task");
         System.out.println("==================");
@@ -172,7 +168,7 @@ class toDoList {
         int priority;
         try {
             priority = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+            scanner.nextLine();
         } catch (InputMismatchException e) {
             handleInvalidInput(scanner);
             return;
@@ -186,13 +182,12 @@ class toDoList {
         System.out.println("\nTask added successfully!");
     }
 
-    // Method to modify a task
     public void modifyTask(Scanner scanner) {
         System.out.print("Enter the priority of the task to modify (1-5): ");
         int priority;
         try {
             priority = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+            scanner.nextLine();
         } catch (InputMismatchException e) {
             handleInvalidInput(scanner);
             return;
@@ -221,7 +216,7 @@ class toDoList {
         int taskIndex;
         try {
             taskIndex = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+            scanner.nextLine();
         } catch (InputMismatchException e) {
             handleInvalidInput(scanner);
             return;
@@ -236,7 +231,6 @@ class toDoList {
         }
     }
 
-    // Method to modify details of a task
     public void modifyTaskDetails(Scanner scanner, task task) {
         while (true) {
             System.out.println("\nModify Task: ");
@@ -299,17 +293,15 @@ class toDoList {
         }
     }
 
-    // Method to remove completed tasks
     private void removeCompletedTasks() {
         for (LinkedList<task> tasks : priorityCategories.values()) {
             tasks.removeIf(task::isComplete);
         }
     }
 
-    // Method to parse a date from a string
     private static Date parseDate(String dateString) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        dateFormat.setLenient(false); // Strict date parsing
+        dateFormat.setLenient(false);
         try {
             return dateFormat.parse(dateString);
         } catch (ParseException e) {
@@ -318,13 +310,11 @@ class toDoList {
         }
     }
 
-    // Method to handle invalid input
     private void handleInvalidInput(Scanner scanner) {
         System.out.println("Invalid input. Please enter a valid number.");
-        scanner.next(); // Consume the invalid input to avoid an infinite loop
+        scanner.next();
     }
 
-    // Method to perform insertion sort on a list of tasks
     private void insertionSort(LinkedList<task> tasks) {
         Comparator<task> comparator = Comparator.comparing(task::getPriority).thenComparing(task::getDeadline);
         for (int i = 1; i < tasks.size(); i++) {
@@ -353,10 +343,9 @@ public class main {
 
     private static void handleInvalidInput(Scanner scanner) {
         System.out.println("Invalid input. Please enter a valid number.");
-        scanner.next(); // Consume the invalid input to avoid an infinite loop
+        scanner.next();
     }
 
-    // Method to execute the chosen option
     private static void executeOption(Scanner scanner, toDoList toDoList, int choice) {
         try {
             switch (choice) {
@@ -395,7 +384,7 @@ public class main {
             int choice;
             try {
                 choice = scanner.nextInt();
-                scanner.nextLine();  // Consume the newline character
+                scanner.nextLine(); 
             } catch (InputMismatchException e) {
                 handleInvalidInput(scanner);
                 continue;
